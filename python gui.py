@@ -11,6 +11,7 @@ def toggle_checkbox(): # Celsius
 
     # Uncheck the other checkbox
     checkbox2.deselect()
+    checkbox3.deselect()
     var1.set(checked1)  # Update the state of checkbox1
 
     print(f"Checkbox 1 checked: {var1.get()}")
@@ -20,6 +21,7 @@ def toggle_checkbox2(): #Fahrenheit
     checked2 = var2.get() 
 
     checkbox1.deselect()
+    checkbox4.deselect()
     var2.set(checked2) 
 
     print(f"Checkbox 2 checked: {var2.get()}")
@@ -31,6 +33,7 @@ def toggle_checkbox3(): # Celsius
     checked3 = var3.get() 
 
     checkbox4.deselect()
+    checkbox1.deselect()
     var3.set(checked3) 
 
     print(f"Checkbox 3 checked: {var3.get()}")
@@ -40,6 +43,7 @@ def toggle_checkbox4(): # Fahrenheit
     checked4 = var4.get() 
 
     checkbox3.deselect()
+    checkbox2.deselect()
     var4.set(checked4) 
 
     print(f"Checkbox 4 checked: {var4.get()}")
