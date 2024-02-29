@@ -1,11 +1,8 @@
 from multiprocessing.sharedctypes import Value
 import re
 from tkinter import *
+from tkinter import messagebox
 
-def click():
-    global count
-    count += 1
-    print(count)
 
 # Convert from
 def toggle_checkbox(): # Celsius
@@ -74,17 +71,26 @@ def convert_temp():
         temp = float(entry.get())
         if var1.get() == 1 and var4.get() == 1:
             converted_temp = C_to_F(temp)
-            print(f"{temp}°C = {converted_temp:.2f}°F")
+            messagebox.showinfo(
+                message=f"{temp}°C = {converted_temp:.2f}°F",
+                title="Conversion complete!")
         elif var2.get() == 1 and var3.get() == 1:
             converted_temp = F_to_C(temp)
-            print(f"{temp}°F = {converted_temp:.2f}°C")
+            messagebox.showinfo(
+                message=f"{temp}°F = {converted_temp:.2f}°C",
+                title="Conversion complete!")
         else:
-            print("Select what to convert from to")
+            messagebox.showinfo(
+                message="Select what to convert from to",
+                title="Error")
     except ValueError:
-        print("Must enter a value")
+       messagebox.showinfo(
+           title="Error",
+           message="Must enter a value"
+       )
+        
 
 
-count = 0
 
 window = Tk()  # Starts a window
 window.geometry("520x420")
