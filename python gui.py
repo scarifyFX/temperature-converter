@@ -73,10 +73,10 @@ def convert_temp():
     try:
         temp = float(entry.get())
         if var1.get() == 1 and var4.get() == 1:
-            converted_temp = C_to_F
+            converted_temp = C_to_F(temp)
             print(f"{temp}°C = {converted_temp:.2f}°F")
         elif var2.get() == 1 and var3.get() == 1:
-            converted_temp = F_to_C
+            converted_temp = F_to_C(temp)
             print(f"{temp}°F = {converted_temp:.2f}°C")
         else:
             print("Select what to convert from to")
