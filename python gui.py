@@ -113,6 +113,7 @@ button.pack(side="bottom")
 button.pack(anchor="center")
 button.pack(padx=0, pady=60)
 
+
 # Create separate IntVar objects for each checkbox
 # Convert from
 var1 = IntVar(window)
@@ -136,12 +137,12 @@ checkbox2 = Checkbutton(
 # Position the checkboxes using pack(), grid(), or place()
 # Convert from
 checkbox1.place(x=50, y=160, 
-                #width=120, height=30
+                width=90
                 )
 
 
 checkbox2.place(x=50, y=230, 
-                #width=120, height=30
+                width=90
                 )
 
 # Convert from end
@@ -163,17 +164,36 @@ checkbox4 = Checkbutton(
     variable=var4,
     command=toggle_checkbox4
 )
-checkbox3.place(x=400, y=160, 
-                #width=120, height=30
+checkbox3.place(x=380, y=160, 
+                width=90,
                 )
-checkbox4.place(x=400, y=230, 
-                #width=120, height=30
+checkbox4.place(x=380, y=230, 
+                width=90
                 )
 
 
 
 #convert to end
 
+#text
+Enter = Label(window,
+              text="Enter temperature")
+Enter.config(width=16)
+Enter.pack(side="top", anchor="center", pady=20)
+
+Convetfrom = Label(window,
+              text="Convert From")
+Convetfrom.config(width=16)
+Convetfrom.pack(side="top", anchor="center", pady=20)
+
+Convetfrom.place(x=50, y=120, width=90)
+
+Convetto = Label(window,
+              text="Convert To")
+Convetto.config(width=16)
+Convetto.pack(side="top", anchor="center", pady=20)
+
+Convetto.place(x=380, y=120, width=90)
 
 # Enter temperature with only digits and dot/commas as valid
 entry = Entry(window, validate="all", validatecommand=(window.register(validate_entry), "%P"))
@@ -181,8 +201,7 @@ entry = Entry(window, validate="all", validatecommand=(window.register(validate_
 entry.config(width=20)
 entry.pack(side="top")
 entry.pack(anchor="center")
-entry.pack(pady=30)
-
+entry.pack(pady=0)
 
 
 
