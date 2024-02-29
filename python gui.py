@@ -2,7 +2,7 @@ from multiprocessing.sharedctypes import Value
 import re
 from tkinter import *
 from tkinter import messagebox
-
+import pyperclip
 
 # Convert from
 def toggle_checkbox(): # Celsius
@@ -71,14 +71,18 @@ def convert_temp():
         temp = float(entry.get())
         if var1.get() == 1 and var4.get() == 1:
             converted_temp = C_to_F(temp)
-            messagebox.showinfo(
-                message=f"{temp}°C = {converted_temp:.2f}°F",
-                title="Conversion complete!")
+            if messagebox.askyesno(
+                message=f"{temp}°C = {converted_temp:.2f}°F, Do you want to copy its value?",
+                title="Conversion complete!"
+                ) == True:
+                pyperclip.copy(str(round(converted_temp, 2)))
+                                           
         elif var2.get() == 1 and var3.get() == 1:
             converted_temp = F_to_C(temp)
-            messagebox.showinfo(
-                message=f"{temp}°F = {converted_temp:.2f}°C",
-                title="Conversion complete!")
+            if messagebox.askyesno(
+                message=f"{temp}°F = {converted_temp:.2f}°C. Do you want to copy its value?",
+                title="Conversion complete!") == True:
+                pyperclip.copy(str(round(converted_temp, 2)))
         else:
             messagebox.showinfo(
                 message="Select what to convert from to",
